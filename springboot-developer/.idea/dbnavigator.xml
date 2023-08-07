@@ -86,8 +86,47 @@ create table user_info (
     </connection>
     <connection id="cbdc0154-a44d-4bfd-8ece-c54c5309a9bb">
       <console name="Add Cullumn" type="STANDARD" schema="samsamhajyo" session="Main"><![CDATA[ALTER TABLE samsamhajyo.user_info ADD permission varchar(255);]]></console>
+      <console name="condition_table" type="STANDARD" schema="samsamhajyo" session="Main"><![CDATA[use samsamhajyo;
+create table condition_detail (
+                        id bigint not null AUTO_INCREMENT,
+                        condition_id bigint not null,
+                        subject_information varchar(255),
+                        kind_of_condition varchar(255),
+                        kind_of_subject varchar(255),
+                        credit int,
+                        subject_list varchar(255),
+                        the_number_of int,
+                        grade float,
+                        primary key(id),
+                        foreign key(condition_id) references graduation_condition(condition_id)
+);]]></console>
       <console name="delete_user_info" type="STANDARD" schema="samsamhajyo" session="Main"><![CDATA[use samsamhajyo;
 delete from user_info;]]></console>
+      <console name="english_condition" type="STANDARD" schema="samsamhajyo" session="Main"><![CDATA[use samsamhajyo;
+create table english_condition(
+                                id bigint not null AUTO_INCREMENT,
+                                condition_id bigint not null,
+                                english_level varchar(255),
+                                list_of_subject varchar(255),
+                                primary key(id),
+                                foreign key(condition_id) references graduation_condition(condition_id)
+);]]></console>
+      <console name="exception_condition" type="STANDARD" schema="mysql" session="Main"><![CDATA[use samsamhajyo;
+create table exception_condition(
+                                id bigint not null AUTO_INCREMENT,
+                                condition_id bigint not null,
+                                exception_name varchar(255),
+                                kind_of_condition varchar(255),
+         );]]></console>
+      <console name="graduation_condition_table" type="STANDARD" schema="samsamhajyo" session="Main"><![CDATA[use samsamhajyo;
+create table graduation_condition (
+                                    condition_id bigint not null AUTO_INCREMENT,
+                                    major varchar(255) not null,
+                                    student_number int not null,
+                                    type varchar(255) not null,
+                                    course varchar(255) not null,
+                                    primary key(condition_id)           
+);]]></console>
       <console name="select_user_info_table" type="STANDARD" schema="samsamhajyo" session="Main"><![CDATA[use samsamhajyo;
 select * from user_info;]]></console>
       <console name="user_info_table" type="STANDARD" schema="samsamhajyo" session="Main"><![CDATA[use samsamhajyo;
@@ -103,6 +142,7 @@ create table UserInfo (
                         userpassword varchar(255) not null,
                         primary key (id)
 );]]></console>
+      <console name="기타" type="STANDARD" schema="samsamhajyo" session="Main"><![CDATA[select * from graduation_condition;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -112,11 +152,14 @@ create table UserInfo (
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="cbdc0154-a44d-4bfd-8ece-c54c5309a9bb" dataset="samsamhajyo.graduation_condition" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="cbdc0154-a44d-4bfd-8ece-c54c5309a9bb" dataset="samsamhajyo.user_info" active-filter-id="EMPTY_FILTER">
       <filter id="61ca711f-fa00-4e57-8a73-c2aca8554c9f" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="id" operator="=" value="" active="true" />
       </filter>
     </filter-actions>
+    <filter-actions connection-id="cbdc0154-a44d-4bfd-8ece-c54c5309a9bb" dataset="samsamhajyo.condition_detail" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="cbdc0154-a44d-4bfd-8ece-c54c5309a9bb" dataset="samsamhajyo.english_condition" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="cbdc0154-a44d-4bfd-8ece-c54c5309a9bb" dataset="samsamhajyo.UserInfo" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
