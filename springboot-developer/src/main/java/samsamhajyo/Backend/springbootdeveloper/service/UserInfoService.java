@@ -20,5 +20,19 @@ public class UserInfoService {
     public List<UserInfo> getByNumber(AddUserInfoRequest request) { return userInfoRepository.findByUsernumber(request.getuser_number()); }
     public List<UserInfo> getById(AddUserInfoRequest request) { return userInfoRepository.findByUserid(request.getuser_id());}
     public List<UserInfo> getByIdAndPassword(String id, String password){ return userInfoRepository.findByUseridAndUserpassword(id, password);}
+    public List<UserInfo> findAll() {
+        return userInfoRepository.findAll();
+    }
+    public boolean updateAdminPermission(String userid) {
+        List<UserInfo> userInfoList = userInfoRepository.findByUserid(userid);
 
+        if (!userInfoList.isEmpty()) {
+            UserInfo userInfo = userInfoList.get(0);
+            userInfo.setPermission("Y");
+            userInfoRepository.save(userInfo);
+            return true;
+        }
+
+        return false;
+    }
 }

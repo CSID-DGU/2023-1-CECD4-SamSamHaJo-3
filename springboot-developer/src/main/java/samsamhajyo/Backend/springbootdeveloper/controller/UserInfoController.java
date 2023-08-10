@@ -44,4 +44,18 @@ public class UserInfoController {
 
         return "로그인 완료";
     }
+    @GetMapping("/grtAdmin")
+    public List<UserInfo> getAdmin(){
+        List<UserInfo> getAllAdmins = userInfoService.findAll();
+        return getAllAdmins;
+    }
+    @PatchMapping("/patchAdmin/{userid}")
+    public ResponseEntity<String> patchAdmin(@PathVariable("userid") String userid){
+        boolean success=userInfoService.updateAdminPermission(userid);
+        if(success){
+            return ResponseEntity.ok("Permission Updated successfully");
+        } else {
+            return ResponseEntity.badRequest().body("Failed to update permission");
+        }
+    }
 }

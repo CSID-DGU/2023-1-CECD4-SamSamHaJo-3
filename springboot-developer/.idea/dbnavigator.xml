@@ -150,7 +150,7 @@ create table UserInfo (
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
-      <object connection-id="cbdc0154-a44d-4bfd-8ece-c54c5309a9bb" object-ref="schemas/samsamhajyo/tables/graduation_condition" />
+      <object connection-id="cbdc0154-a44d-4bfd-8ece-c54c5309a9bb" object-ref="schemas/samsamhajyo/tables/user_info" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">

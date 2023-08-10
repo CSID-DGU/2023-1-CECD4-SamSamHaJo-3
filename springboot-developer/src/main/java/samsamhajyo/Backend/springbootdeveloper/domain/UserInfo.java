@@ -58,4 +58,7 @@ public class UserInfo {
         return this.permission;
     }
 
+    public void setPermission(String permission) {
+        this.permission=permission;
+    }
 }
