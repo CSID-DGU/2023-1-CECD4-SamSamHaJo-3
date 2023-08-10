@@ -3,6 +3,7 @@ package samsamhajyo.Backend.springbootdeveloper.service;
 import lombok.*;
 import org.springframework.stereotype.Service;
 import samsamhajyo.Backend.springbootdeveloper.domain.EnglishCondition;
+import samsamhajyo.Backend.springbootdeveloper.domain.GraduationCondition;
 import samsamhajyo.Backend.springbootdeveloper.dto.AddEnglishConditionRequest;
 import samsamhajyo.Backend.springbootdeveloper.dto.EnglishConditionRequest;
 import samsamhajyo.Backend.springbootdeveloper.repository.EnglishConditionRepository;
@@ -19,5 +20,8 @@ public class EnglishConditionService {
             englishConditionRepository.save(request.get(i).toEntity());
         }
         return "영어 조건 서비스 완료";
+    }
+    public List<EnglishCondition> getEnglishCondition(GraduationCondition graduationCondition){
+        return englishConditionRepository.findByGraduationcondition(graduationCondition);
     }
 }

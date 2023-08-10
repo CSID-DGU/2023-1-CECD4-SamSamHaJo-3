@@ -142,14 +142,16 @@ create table UserInfo (
                         userpassword varchar(255) not null,
                         primary key (id)
 );]]></console>
-      <console name="기타" type="STANDARD" schema="samsamhajyo" session="Main"><![CDATA[select * from graduation_condition;]]></console>
+      <console name="기타" type="STANDARD" schema="samsamhajyo" session="Main"><![CDATA[select * from english_condition;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="cbdc0154-a44d-4bfd-8ece-c54c5309a9bb" object-ref="schemas/samsamhajyo/tables/graduation_condition" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="cbdc0154-a44d-4bfd-8ece-c54c5309a9bb" dataset="samsamhajyo.graduation_condition" active-filter-id="EMPTY_FILTER" />

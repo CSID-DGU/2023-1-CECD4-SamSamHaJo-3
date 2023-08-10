@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import samsamhajyo.Backend.springbootdeveloper.domain.ConditionDetail;
+import samsamhajyo.Backend.springbootdeveloper.domain.GraduationCondition;
 import samsamhajyo.Backend.springbootdeveloper.dto.AddConditionDetailRequest;
 import samsamhajyo.Backend.springbootdeveloper.repository.ConditionDetailRepository;
 
@@ -19,5 +20,9 @@ public class ConditionDetailService {
             conditionDetailRepository.save(request.get(i).toEntity());
         }
         return "서비스층 작업 완료";
+    }
+
+    public List<ConditionDetail> getConditionDetail(GraduationCondition graduationCondition){
+        return conditionDetailRepository.findByGraduationcondition(graduationCondition);
     }
 }
